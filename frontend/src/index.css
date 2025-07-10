@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* LearnForge AI-Powered Learning Assistant Design System */
+
+@layer base {
+  :root {
+    /* AI-focused color palette with deep space theme */
+    --background: 225 14% 9%;
+    --foreground: 217 91% 95%;
+
+    --card: 224 13% 12%;
+    --card-foreground: 217 91% 95%;
+
+    --popover: 224 13% 12%;
+    --popover-foreground: 217 91% 95%;
+
+    /* AI Purple/Indigo primary colors */
+    --primary: 263 70% 65%;
+    --primary-foreground: 225 14% 9%;
+    --primary-glow: 263 85% 75%;
+
+    --secondary: 224 13% 16%;
+    --secondary-foreground: 217 91% 95%;
+
+    --muted: 224 13% 16%;
+    --muted-foreground: 217 33% 65%;
+
+    --accent: 263 70% 25%;
+    --accent-foreground: 217 91% 95%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 217 91% 95%;
+
+    --border: 224 13% 18%;
+    --input: 224 13% 18%;
+    --ring: 263 70% 65%;
+
+    --radius: 0.75rem;
+
+    /* AI-themed gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(263 70% 65%), hsl(263 85% 75%));
+    --gradient-secondary: linear-gradient(135deg, hsl(224 13% 12%), hsl(224 13% 16%));
+    --gradient-accent: linear-gradient(135deg, hsl(263 70% 25%), hsl(263 70% 35%));
+    --gradient-glow: linear-gradient(135deg, hsl(263 85% 75% / 0.1), hsl(263 70% 65% / 0.1));
+
+    /* AI glow effects */
+    --glow-primary: 0 0 30px hsl(263 70% 65% / 0.3);
+    --glow-secondary: 0 0 20px hsl(263 85% 75% / 0.2);
+    --glow-accent: 0 0 40px hsl(263 70% 65% / 0.4);
+
+    /* Smooth transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Sidebar colors */
+    --sidebar-background: 225 14% 7%;
+    --sidebar-foreground: 217 91% 95%;
+    --sidebar-primary: 263 70% 65%;
+    --sidebar-primary-foreground: 225 14% 9%;
+    --sidebar-accent: 224 13% 14%;
+    --sidebar-accent-foreground: 217 91% 95%;
+    --sidebar-border: 224 13% 16%;
+    --sidebar-ring: 263 70% 65%;
+  }
+
+  /* Light theme (optional) */
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 225 14% 9%;
+    --card: 0 0% 100%;
+    --card-foreground: 225 14% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 225 14% 9%;
+    --primary: 263 70% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 225 14% 95%;
+    --secondary-foreground: 225 14% 9%;
+    --muted: 225 14% 95%;
+    --muted-foreground: 225 14% 40%;
+    --accent: 263 70% 95%;
+    --accent-foreground: 263 70% 10%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 225 14% 90%;
+    --input: 225 14% 90%;
+    --ring: 263 70% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/60 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary;
+  }
+}
+
+@layer components {
+  /* AI Glow Effects */
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+
+  .glow-secondary {
+    box-shadow: var(--glow-secondary);
+  }
+
+  .glow-accent {
+    box-shadow: var(--glow-accent);
+  }
+
+  /* Gradient backgrounds */
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .bg-gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+
+  .bg-gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .bg-gradient-glow {
+    background: var(--gradient-glow);
+  }
+
+  /* Interactive elements */
+  .interactive {
+    @apply transition-all duration-300 hover:scale-105 hover:glow-primary;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:shadow-primary/20 hover:-translate-y-1;
+  }
+
+  /* AI Chat bubble */
+  .chat-bubble {
+    @apply rounded-2xl px-4 py-3 max-w-[80%] break-words;
+  }
+
+  .chat-bubble-user {
+    @apply bg-gradient-primary text-primary-foreground ml-auto;
+  }
+
+  .chat-bubble-ai {
+    @apply bg-card border border-border text-card-foreground;
+  }
+}
